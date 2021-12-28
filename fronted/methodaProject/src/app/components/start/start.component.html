@@ -1,0 +1,49 @@
+<body>
+    <div id="all">
+
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+            <div id="statuss">
+                <div class="title" [innerText]="'Add Status'"></div>
+                <input type="text" formControlName="status" id="st">
+                <input type="submit" value="add" for="st">
+                <ul>
+                    <li *ngFor="let status of allStatus">
+                        <input type="radio" (change)="changeRadio($event)" [checked]="status.init" name="status" value="{{status.name}}">
+                        <label FOR="status.name" [innerText]="status.name"></label>
+                        <input type="button" value="remove" (click)="removeStatus(status.name)">
+                        <label *ngIf="status.init" [innerText]="'[INIT]'"></label>
+                        <label *ngIf="status.final" [innerText]="'[FINAL]'"></label>
+                        <label *ngIf="status.orphan" [innerText]="'[ORPHAN]'"></label>
+                    </li>
+                </ul>
+            </div>
+        </form>
+        <form [formGroup]="formGrouptransition" (ngSubmit)="onSubmittransition()">
+            <div id="transition">
+                <div class="title" [innerText]="'Add transition'"></div>
+                <label for="tr" [innerText]="'name:'"></label>
+                <input type="text" name="transition" id="tr" formControlName="name" required (change)="change2()">
+                <label for="from" [innerText]="'From:'"></label>
+
+                <select id="from"  formControlName="from" (change)="change1()" required>
+                    <option value="" [innerText]=""></option>
+                    <option *ngFor="let status of allStatus " value="{{status.name}}" [innerText]="status.name">
+                    </option>
+                </select>
+                <label for="to" [innerText]="'To:'"></label>
+                <select id="to" formControlName="to" required (change)="change2()">
+                    <option value="" [innerText]=""></option>
+                    <option *ngFor="let status of allStatusTo" value="{{status.name}}" [innerText]="status.name"></option>
+                </select>
+
+                <input type="submit" name="addtransition" *ngIf="formValid" value="add">
+                <ul>
+                    <li *ngFor="let trans of allTransition">
+                        <label>{{trans.name}}: {{trans.from}} -> {{trans.to}}</label>
+                        <input type="button"  value="remove" (click)="removeTrans(trans.name)">                 </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    <input type="button" id="re" (click)="reset()" value="reset"> 
+</body>

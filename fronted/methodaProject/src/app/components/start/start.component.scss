@@ -1,0 +1,44 @@
+:host{
+    // *{
+    //     box-sizing: border-box;
+    // }
+    // ul{
+    //     // display: inline-block;
+    //     // flex-direction: column;
+    //     list-style-type: disc;
+    // }
+    form{
+        margin-left: 10%;
+        margin-top: 20%;
+        // width: min-content;
+    }
+    li{
+        display: block;
+        // text-align: -webkit-match-parent;
+        flex-direction: row-reverse;
+    }
+    // .a{
+    //     width: min-content;
+    //     margin: 0px;
+    // }
+    #re{
+        background-color: red;
+        width: 150px;
+        height: 150px;
+        font-size: 32px;
+        border-radius: 82px;
+        margin-left: 40%;
+    }
+    #all{
+        display: flex;
+        flex-direction: row;
+    }
+    .title{
+        font-weight: bolder;
+        font-size: medium;
+        margin: 6px;
+    }
+    body{
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    }
+    }
