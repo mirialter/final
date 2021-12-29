@@ -23,9 +23,6 @@ export class TransitionSrviceService {
   addTarnsition(query:object):Observable<any[]>{
     return this.http.post<any>(`${this.url}/api/transition/addtransition`,query,this.options)
   }
-  // deletaOneTransition(query:object):Observable<any[]>{
-  //   return this.http.post<any>(`${this.url}/api/transition/deleteOneStatus`,query,this.options)
-  // }
   deleteOneStatus(query:object):Observable<any[]>{
     return this.http.post<any>(`${this.url}/api/transition/deleteOneStatus`,query,this.options)
   }

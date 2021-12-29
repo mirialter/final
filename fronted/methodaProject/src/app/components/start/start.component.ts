@@ -76,7 +76,6 @@ export class StartComponent implements OnInit {
       }
       this.statusService.addStatus(send).subscribe(
         ans => {
-          // console.log(ans)
           this.formGroup.value.status = ''
           this.allStatus.push(send)
         }
@@ -87,7 +86,7 @@ export class StartComponent implements OnInit {
   }
   onSubmittransition() {
     let check = this.allTransition.find(s => s.name == this.formGrouptransition.value.name)
-    // console.log(check);
+
 
     if (check == undefined) {
       let send: transition = {
@@ -129,7 +128,6 @@ export class StartComponent implements OnInit {
           "status": "final",
           "bool": false,
         }
-        console.log(send);
         this.statusService.updateStatus(send).subscribe()
       }
       else {
@@ -139,7 +137,6 @@ export class StartComponent implements OnInit {
           "status": "final",
           "bool": true,
         }
-        console.log(send);
         this.statusService.updateStatus(send).subscribe()
       }
     })
@@ -154,7 +151,6 @@ export class StartComponent implements OnInit {
       this.addEdge(v, w);
     })
 
-    console.log('adj', this.adj);
     this.V = this.allStatus.length
     const u = this.allStatus.findIndex(s => s.init == true)
     this.allStatus.forEach(st => {
@@ -162,7 +158,6 @@ export class StartComponent implements OnInit {
       send.name = st.name
       send.status = "orphan"
       if (this.isReachable(u, v)) {
-        console.log("There is a path from", u, "to", v)
         if (st.orphan == true) {
           st.orphan = false
           send.bool = false
